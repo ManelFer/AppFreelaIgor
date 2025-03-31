@@ -1,11 +1,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import FormScreen from './src/formScreen'; // Ensure the file exists at this path or adjust the path accordingly
+import FormScreen from './src/formScreen';
+import ListScreen from './src/listScreen';
 
-// Definindo os tipos das rotas
 type RootStackParamList = {
-  Form: undefined;
+  Form: { pais?: any };
+  List: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -17,7 +18,12 @@ export default function App() {
         <Stack.Screen 
           name="Form" 
           component={FormScreen} 
-          options={{ title: 'Cadastro' }}
+          options={{ title: 'Cadastro de Pais ' }}
+        />
+        <Stack.Screen 
+          name="List" 
+          component={ListScreen} 
+          options={{ title: 'Lista de Alunos' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
